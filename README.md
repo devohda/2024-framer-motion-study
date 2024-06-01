@@ -32,7 +32,14 @@
 
 ### 스터디 모집 공고
 
-<img src="study-recruitment.png" width="500"/>
+<table>
+    <tr width="500px">
+        <img src="./public/study-recruitment.png" width="500"/>
+    </tr>
+    <tr width="500px">
+        <img src="./public/study-recruitment2.png" width="500"/>
+    </tr>
+</table>
 
 [스터디 모집 공고 링크](https://puffy-stick-fa1.notion.site/425a2336698c4c81bf54bc308794034f?pvs=74)
 
@@ -50,6 +57,7 @@
 | 8주차(07/20) |                                            | [링크]()  |          |
 
 ### 보고서 작성 방법
+
 1. 스크립트 실행
 
 ```bash
@@ -63,5 +71,4 @@ $ yarn report
 스크립트 실행 날짜 기준으로 `./reports` 디렉토리에 `yyyy-mm-dd.md` 파일이 생성됩니다.
 
 2. 생성된 파일에 내용 작성
-날짜, 내용, 정리 링크, 참여자를 작성합니다.
-
+   날짜, 내용, 정리 링크, 참여자를 작성합니다.
