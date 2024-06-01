@@ -1,0 +1,7 @@
+{
+	"name": "2024-framer-motion-study",
+	"version": "1.0.0",
+	"scripts": {
+		"report": "cp reports/template.md reports/$(date \"+%Y-%m-%d\").md"
+	}
+}
