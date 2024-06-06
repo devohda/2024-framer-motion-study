@@ -1,0 +1,6 @@
+.ball-container {
+    height: 700px;
+    padding: 68px 24px;
+    display: flex;
+    align-items: flex-end;
+}
