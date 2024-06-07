@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Ball = () => {
   const { scrollY } = useScroll();
-  const size = useTransform(scrollY, [0, 500], [338, 40]);
+  const size = useTransform(scrollY, [60, 500], [338, 40]);
 
   return (
     <motion.div
