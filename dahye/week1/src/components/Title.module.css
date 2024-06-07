@@ -6,6 +6,7 @@
 }
 
 .ball-container {
+    width: 340px;
 }
 
 .content-container {
@@ -19,10 +20,13 @@
 }
 
 .zero-container > span {
-    margin-right: -30px;
     font-size: 430px;
     font-weight: 700;
     color: white;
     line-height: 1;
     height: 360px;
+}
+
+.zero-container > span:not(:last-child) {
+    margin-right: -36px;
 }
