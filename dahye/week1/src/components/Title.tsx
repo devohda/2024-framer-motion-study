@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import Ball from './Ball';
 import styles from './Title.module.css';
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import type { Variants } from 'framer-motion';
+
+const TEXT = 'ZERO';
 
 const Title = () => {
   const { scrollY } = useScroll();
@@ -16,26 +18,30 @@ const Title = () => {
     }
   });
 
-  const itemVariants: Variants = {
-    up: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: 'tween',
-        stiffness: 500,
-        damping: 24,
+  const itemVariants = useCallback(
+    (index: number): Variants => ({
+      up: {
+        opacity: 1,
+        y: 0,
+        transition: {
+          type: 'tween',
+          stiffness: 500,
+          damping: 24,
+          delay: index * 0.05,
+        },
       },
-    },
-    down: {
-      opacity: 0,
-      y: 330,
-      transition: {
-        type: 'tween',
-        stiffness: 500,
-        damping: 24,
+      down: {
+        opacity: 0,
+        y: 330,
+        transition: {
+          type: 'tween',
+          ease: [0.7, 0, 1, 0.65],
+          delay: (TEXT.length - index) * 0.1,
+        },
       },
-    },
-  };
+    }),
+    []
+  );
 
   return (
     <motion.div
@@ -44,13 +50,10 @@ const Title = () => {
       animate={showZeroText ? 'up' : 'down'}
       variants={{
         up: {
-          transition: {
-            staggerChildren: 0.1,
-          },
+          transition: {},
         },
         down: {
           transition: {
-            staggerChildren: 0.1,
             staggerDirection: -1,
           },
         },
@@ -62,10 +65,11 @@ const Title = () => {
         </div>
 
         <motion.div className={styles['zero-container']}>
-          <motion.span variants={itemVariants}>Z</motion.span>
-          <motion.span variants={itemVariants}>E</motion.span>
-          <motion.span variants={itemVariants}>R</motion.span>
-          <motion.span variants={itemVariants}>O</motion.span>
+          {TEXT.split('').map((char, index) => (
+            <motion.span key={index} variants={itemVariants(index)}>
+              {char}
+            </motion.span>
+          ))}
         </motion.div>
       </div>
     </motion.div>
