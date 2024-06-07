@@ -46,7 +46,6 @@ const Title = () => {
   return (
     <motion.div
       className={styles['title-container']}
-      initial="closed"
       animate={showZeroText ? 'up' : 'down'}
       variants={{
         up: {
