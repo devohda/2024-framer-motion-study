@@ -1,11 +1,9 @@
-import Navigator from '../components/Navigator';
+import styles from './Page2.module.css';
 
 const Page2 = () => {
   return (
-    <div>
+    <div className={styles.page}>
       <h1>Page2</h1>
-
-      <Navigator />
     </div>
   );
 };

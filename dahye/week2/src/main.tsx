@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
+import { AnimatePresence } from 'framer-motion';
 import { RouterProvider } from 'react-router-dom';
 import router from './router';
 import './index.css';
@@ -10,6 +11,8 @@ if (!rootElement) throw new Error('root element not found');
 
 ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AnimatePresence mode="wait">
+      <RouterProvider router={router} />
+    </AnimatePresence>
   </React.StrictMode>
 );
