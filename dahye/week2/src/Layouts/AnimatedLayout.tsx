@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const AnimatedLayout = () => {
   return (
-    <motion.div exit={{ opacity: 0 }}>
+    <motion.div initial={{ opacity: 1 }} exit={{ opacity: 0 }}>
       <Navigator />
 
       <Outlet />

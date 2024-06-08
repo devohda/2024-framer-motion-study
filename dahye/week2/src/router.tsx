@@ -1,27 +1,21 @@
-import { createBrowserRouter } from 'react-router-dom';
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from 'react-router-dom';
 import Main from './pages/Main';
 import Page1 from './pages/Page1';
 import Page2 from './pages/Page2';
 import AnimatedLayout from './Layouts/AnimatedLayout';
 
-const router = createBrowserRouter([
-  {
-    element: <AnimatedLayout />,
-    children: [
-      {
-        path: '/',
-        element: <Main />,
-      },
-      {
-        path: '/page1',
-        element: <Page1 />,
-      },
-      {
-        path: '/page2',
-        element: <Page2 />,
-      },
-    ],
-  },
-]);
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route element={<AnimatedLayout />}>
+      <Route index element={<Main />} />
+      <Route path="page1" element={<Page1 />} />
+      <Route path="page2" element={<Page2 />} />
+    </Route>
+  )
+);
 
 export default router;
