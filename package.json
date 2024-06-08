@@ -14,7 +14,8 @@
         "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
         "format": "prettier --write .",
         "preview": "vite preview",
-        "dahye/week1": "vite --config ./dahye/week1/vite.config.ts"
+        "dahye/week1": "vite --config ./dahye/week1/vite.config.ts",
+        "dahye/week2": "vite --config ./dahye/week2/vite.config.ts"
     },
     "dependencies": {
         "framer-motion": "^11.2.10",
