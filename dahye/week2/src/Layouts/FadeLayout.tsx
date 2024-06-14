@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 import Navigator from '../components/Navigator';
 import { motion } from 'framer-motion';
 
-const AnimatedLayout = () => {
+const FadeLayout = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -16,4 +16,4 @@ const AnimatedLayout = () => {
   );
 };
 
-export default AnimatedLayout;
+export default FadeLayout;
