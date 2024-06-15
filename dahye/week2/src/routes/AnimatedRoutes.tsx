@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 import FadeLayout from '../Layouts/FadeLayout';
 import FlipLayout from '../Layouts/FlipLayout';
 import FadeStairLayout from '../Layouts/FadeStairLayout';
+import ColorFadeLayout from '../Layouts/ColorFadeLayout';
 
 import Main from '../pages/Main';
 import Page1 from '../pages/Page1';
@@ -31,6 +32,12 @@ const AnimatedRoutes = () => {
         <Route element={<FadeStairLayout />}>
           <Route path="page5" element={<Page5 />} />
           <Route path="page6" element={<Page6 />} />
+        </Route>
+
+        <Route path="color" element={<ColorFadeLayout />}>
+          <Route path="page1" element={<Page1 />} />
+          <Route path="page2" element={<Page2 />} />
+          <Route path="page3" element={<Page3 />} />
         </Route>
       </Routes>
     </AnimatePresence>
