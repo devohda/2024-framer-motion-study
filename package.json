@@ -15,14 +15,18 @@
         "format": "prettier --write .",
         "preview": "vite preview",
         "dahye/week1": "vite --config ./dahye/week1/vite.config.ts",
-        "dahye/week2": "vite --config ./dahye/week2/vite.config.ts"
+        "dahye/week2": "vite --config ./dahye/week2/vite.config.ts",
+        "dahye/week3": "vite --config ./dahye/week3/vite.config.ts"
     },
     "dependencies": {
+        "@react-three/fiber": "^8.16.8",
         "framer-motion": "^11.2.10",
+        "framer-motion-3d": "^11.2.10",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
         "react-icons": "^5.2.1",
-        "react-router-dom": "^6.23.1"
+        "react-router-dom": "^6.23.1",
+        "three": "^0.137.5"
     },
     "devDependencies": {
         "@types/react": "^18.3.3",
