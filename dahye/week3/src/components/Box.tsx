@@ -11,13 +11,13 @@ const Box = (props: MeshProps) => {
   const [active, setActive] = useState(false);
 
   // Subscribe this component to the render-loop, rotate the mesh every frame
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (!meshRef.current) return;
 
     return (meshRef.current.rotation.x += delta);
   });
-  // Return view, these are regular three.js elements expressed in JSX
 
+  // Return view, these are regular three.js elements expressed in JSX
   return (
     <mesh
       {...props}
@@ -26,9 +26,10 @@ const Box = (props: MeshProps) => {
       onClick={() => setActive(!active)}
       onPointerOver={() => setHover(true)}
       onPointerOut={() => setHover(false)}
+      position={[0, 0, 0]}
     >
       <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
+      <meshStandardMaterial color={hovered ? 'white' : 'orange'} />
     </mesh>
   );
 };
