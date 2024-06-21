@@ -26,6 +26,21 @@ module.exports = {
     rules: {
         // react 17 버전 이후 import React from 'react' 없어도 됨
         'react/react-in-jsx-scope': 'off',
+
+        // react-three-fiber에서 사용하는 property 에러 무시
+        'react/no-unknown-property': [
+            'error',
+            {
+                ignore: [
+                    'args',
+                    'intensity',
+                    'position',
+                    'angle',
+                    'penumbra',
+                    'decay',
+                ],
+            },
+        ],
     },
     settings: {
         react: {

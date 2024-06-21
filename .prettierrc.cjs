@@ -17,7 +17,6 @@ module.exports = {
         {
             files: ['**/*.{ts,tsx,js,jsx}'],
             options: {
-                parser: 'babel',
                 tabWidth: 2,
             },
         },
