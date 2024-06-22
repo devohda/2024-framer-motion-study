@@ -1,10 +1,5 @@
 import { useRef, useState } from 'react';
-import {
-  MeshTransmissionMaterial,
-  useGLTF,
-  Text,
-  Draggable,
-} from '@react-three/drei';
+import { MeshTransmissionMaterial, useGLTF, Text } from '@react-three/drei';
 import { ThreeEvent, useThree } from '@react-three/fiber';
 
 import { useControls } from 'leva';

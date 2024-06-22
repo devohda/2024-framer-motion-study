@@ -1,9 +1,9 @@
-import Scene from './components/Scene';
+import OfficeScene from './components/OfficeScene';
 
 function App() {
   return (
     <div id="page">
-      <Scene />
+      <OfficeScene />
     </div>
   );
 }
