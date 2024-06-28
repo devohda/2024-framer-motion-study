@@ -1,0 +1,32 @@
+.title-container {
+    height: 900px;
+    padding: 68px 24px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.ball-container {
+    width: 340px;
+}
+
+.content-container {
+    display: flex;
+    align-items: center;
+}
+
+.zero-container {
+    display: flex;
+    overflow: hidden;
+}
+
+.zero-container > span {
+    font-size: 430px;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+    height: 360px;
+}
+
+.zero-container > span:not(:last-child) {
+    margin-right: -36px;
+}
