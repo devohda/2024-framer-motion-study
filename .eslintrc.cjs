@@ -42,6 +42,7 @@ module.exports = {
                     'rotation',
                     'geometry',
                     'material',
+                    'object',
                 ],
             },
         ],

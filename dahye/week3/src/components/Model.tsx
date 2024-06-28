@@ -6,7 +6,7 @@ import { useControls } from 'leva';
 import { Mesh } from 'three';
 
 export default function Model() {
-  const { nodes } = useGLTF('/medias/torrus.glb');
+  const { nodes } = useGLTF('/medias/donut.gltf');
   const { viewport } = useThree();
   const torus = useRef<Mesh>(null);
 
@@ -71,7 +71,7 @@ export default function Model() {
 
       <mesh
         ref={torus}
-        {...nodes.Torus002}
+        {...nodes}
         onPointerDown={handleMouseDown}
         onPointerMove={handleMouseMove}
         onPointerUp={handleMouseUp}
