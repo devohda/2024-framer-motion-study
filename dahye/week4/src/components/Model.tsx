@@ -1,4 +1,5 @@
 import { useGLTF } from '@react-three/drei';
+import React from 'react';
 import { useMemo } from 'react';
 
 const Model = (props: { position: [number, number, number] }) => {
@@ -8,4 +9,4 @@ const Model = (props: { position: [number, number, number] }) => {
   return <primitive object={copiedScene} position={props.position} />;
 };
 
-export default Model;
+export default React.memo(Model);
