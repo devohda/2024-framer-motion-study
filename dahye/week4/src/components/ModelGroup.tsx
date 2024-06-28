@@ -1,14 +1,28 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import Model from './Model';
 import { MathUtils, type Group } from 'three';
 import { CameraControls } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
+
+const HUNDRED_LENGTTH_ARRAY = new Array(50).fill(null);
 
 const ModelGroup = () => {
   const groupRef = useRef<Group>(null);
   const cameraRef = useRef<CameraControls>(null);
 
   const [isDragging, setIsDragging] = useState(false);
+
+  const randomPosition = useMemo<[number, number, number][]>(() => {
+    const positions = HUNDRED_LENGTTH_ARRAY.fill(null).map(() => {
+      return [
+        MathUtils.randFloatSpread(30),
+        MathUtils.randFloatSpread(30),
+        MathUtils.randFloatSpread(30),
+      ] as [number, number, number];
+    });
+
+    return positions;
+  }, []);
 
   useEffect(() => {
     if (groupRef.current === null || cameraRef.current === null) return;
@@ -33,9 +47,12 @@ const ModelGroup = () => {
         onStart={() => setIsDragging(true)}
         onEnd={() => setIsDragging(false)}
       />
-      <Model position={[1, 0.3, 0]} />
-      <Model position={[2, 0.3, 0]} />
-      <Model position={[3, 0.3, 0]} />
+      {
+        // make 100 models with random positions
+        HUNDRED_LENGTTH_ARRAY.fill(null).map((_, index) => (
+          <Model key={index} position={randomPosition[index]} />
+        ))
+      }
     </group>
   );
 };
