@@ -16,7 +16,8 @@
         "preview": "vite preview",
         "dahye/week1": "vite --config ./dahye/week1/vite.config.ts",
         "dahye/week2": "vite --config ./dahye/week2/vite.config.ts",
-        "dahye/week3": "vite --config ./dahye/week3/vite.config.ts"
+        "dahye/week3": "vite --config ./dahye/week3/vite.config.ts",
+        "dahye/week4": "vite --config ./dahye/week4/vite.config.ts"
     },
     "dependencies": {
         "@react-three/drei": "^9.106.1",
