@@ -43,6 +43,7 @@ module.exports = {
                     'geometry',
                     'material',
                     'object',
+                    'texture',
                 ],
             },
         ],

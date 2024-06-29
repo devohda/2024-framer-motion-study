@@ -1,10 +1,20 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import Model from './Model';
+import Ball from './model/Ball';
+import Cat from './model/Cat';
 import { MathUtils, type Group } from 'three';
 import { CameraControls } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
-const HUNDRED_LENGTTH_ARRAY = new Array(50).fill(null);
+const HUNDRED_LENGTTH_ARRAY = new Array(100).fill(null);
+
+function gaussianRandom(mean: number, sigma: number) {
+  let u = 0,
+    v = 0;
+  while (u === 0) u = Math.random(); // Converting [0,1) to (0,1)
+  while (v === 0) v = Math.random();
+  const normal = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+  return mean + sigma * normal;
+}
 
 const ModelGroup = () => {
   const groupRef = useRef<Group>(null);
@@ -15,9 +25,9 @@ const ModelGroup = () => {
   const randomPosition = useMemo<[number, number, number][]>(() => {
     const positions = HUNDRED_LENGTTH_ARRAY.fill(null).map(() => {
       return [
-        MathUtils.randFloatSpread(30),
-        MathUtils.randFloatSpread(30),
-        MathUtils.randFloatSpread(30),
+        gaussianRandom(0, 5),
+        gaussianRandom(0, 5),
+        gaussianRandom(0, 5),
       ] as [number, number, number];
     });
 
@@ -42,16 +52,20 @@ const ModelGroup = () => {
         ref={cameraRef}
         enabled={true}
         distance={10}
-        maxDistance={30}
+        maxDistance={20}
         minDistance={1}
         onStart={() => setIsDragging(true)}
         onEnd={() => setIsDragging(false)}
       />
       {
         // make 100 models with random positions
-        HUNDRED_LENGTTH_ARRAY.fill(null).map((_, index) => (
-          <Model key={index} position={randomPosition[index]} />
-        ))
+        HUNDRED_LENGTTH_ARRAY.fill(null).map((_, index) =>
+          index % 2 === 0 ? (
+            <Ball key={index} position={randomPosition[index]} />
+          ) : (
+            <Cat key={index} position={randomPosition[index]} />
+          )
+        )
       }
     </group>
   );
