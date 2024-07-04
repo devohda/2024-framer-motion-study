@@ -1,38 +1,18 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
-import Ball from './model/Ball';
-import Cat from './model/Cat';
+import { useEffect, useRef, useState } from 'react';
 import { MathUtils, type Group } from 'three';
 import { CameraControls } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
-const HUNDRED_LENGTTH_ARRAY = new Array(100).fill(null);
+import { makeModelGroup } from '../utils/model';
+import Model from '../components/model/Model';
 
-function gaussianRandom(mean: number, sigma: number) {
-  let u = 0,
-    v = 0;
-  while (u === 0) u = Math.random(); // Converting [0,1) to (0,1)
-  while (v === 0) v = Math.random();
-  const normal = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
-  return mean + sigma * normal;
-}
+const modelGroup = makeModelGroup();
 
 const ModelGroup = () => {
   const groupRef = useRef<Group>(null);
   const cameraRef = useRef<CameraControls>(null);
 
   const [isDragging, setIsDragging] = useState(false);
-
-  const randomPosition = useMemo<[number, number, number][]>(() => {
-    const positions = HUNDRED_LENGTTH_ARRAY.fill(null).map(() => {
-      return [
-        gaussianRandom(0, 5),
-        gaussianRandom(0, 5),
-        gaussianRandom(0, 5),
-      ] as [number, number, number];
-    });
-
-    return positions;
-  }, []);
 
   useEffect(() => {
     if (groupRef.current === null || cameraRef.current === null) return;
@@ -57,16 +37,10 @@ const ModelGroup = () => {
         onStart={() => setIsDragging(true)}
         onEnd={() => setIsDragging(false)}
       />
-      {
-        // make 100 models with random positions
-        HUNDRED_LENGTTH_ARRAY.fill(null).map((_, index) =>
-          index % 2 === 0 ? (
-            <Ball key={index} position={randomPosition[index]} />
-          ) : (
-            <Cat key={index} position={randomPosition[index]} />
-          )
-        )
-      }
+
+      {modelGroup.map((modelInfo, index) => (
+        <Model key={index} {...modelInfo} />
+      ))}
     </group>
   );
 };
