@@ -3,10 +3,8 @@ import { MathUtils, type Group } from 'three';
 import { CameraControls } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
-import { makeModelGroup } from '../utils/model';
+import models from '../utils/model';
 import Model from '../components/model/Model';
-
-const modelGroup = makeModelGroup();
 
 const ModelGroup = () => {
   const groupRef = useRef<Group>(null);
@@ -34,11 +32,12 @@ const ModelGroup = () => {
         distance={10}
         maxDistance={20}
         minDistance={1}
+        dollySpeed={1}
         onStart={() => setIsDragging(true)}
         onEnd={() => setIsDragging(false)}
       />
 
-      {modelGroup.map((modelInfo, index) => (
+      {models.map((modelInfo, index) => (
         <Model key={index} {...modelInfo} />
       ))}
     </group>

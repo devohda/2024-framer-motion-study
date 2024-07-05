@@ -39,6 +39,4 @@ const makeModelGroup = () => {
   });
 };
 
-const models = makeModelGroup();
-
-export default models;
+export default makeModelGroup();
