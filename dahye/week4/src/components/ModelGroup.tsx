@@ -3,7 +3,7 @@ import { MathUtils, type Group } from 'three';
 import { CameraControls } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
-import models from '../utils/model';
+import { MODELS as models } from '../utils/model';
 import Model from '../components/model/Model';
 
 const ModelGroup = () => {

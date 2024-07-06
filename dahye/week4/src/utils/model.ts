@@ -24,10 +24,10 @@ const MODEL_KINDS_LENGTH = models.length;
 // make 100 models with random positions
 const makeModelGroup = () => {
   return new Array(MODEL_LENGTH).fill(null).map(() => {
-    const randomInt = MathUtils.randInt(0, MODEL_KINDS_LENGTH - 1);
+    // const randomInt = MathUtils.randInt(0, MODEL_KINDS_LENGTH - 1);
 
     const randomModel: ModelInfo = {
-      ...models[randomInt],
+      ...models[0],
       position: [
         MathUtils.clamp(gaussianRandom(0, 5), -30, 30),
         MathUtils.clamp(gaussianRandom(0, 5), -30, 30),
@@ -39,4 +39,26 @@ const makeModelGroup = () => {
   });
 };
 
-export default makeModelGroup();
+export const MODELS = Array.from({ length: 100 }).map(() => {
+  // const randomInt = MathUtils.randInt(0, MODEL_KINDS_LENGTH - 1);
+
+  // const randomModel: ModelInfo = {
+  //   ...models[0],
+  //   position: [
+  //     MathUtils.clamp(gaussianRandom(0, 5), -30, 30),
+  //     MathUtils.clamp(gaussianRandom(0, 5), -30, 30),
+  //     MathUtils.clamp(gaussianRandom(0, 5), -30, 30),
+  //   ],
+  // };
+
+  return {
+    ...models[0],
+    position: [
+      MathUtils.clamp(gaussianRandom(0, 5), -30, 30),
+      MathUtils.clamp(gaussianRandom(0, 5), -30, 30),
+      MathUtils.clamp(gaussianRandom(0, 5), -30, 30),
+    ],
+  };
+});
+
+console.log(MODELS);
